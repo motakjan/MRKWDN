@@ -1,0 +1,6 @@
+@PedroMenicka.Server_HostAddress = http://localhost:5171
+
+GET {{PedroMenicka.Server_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
