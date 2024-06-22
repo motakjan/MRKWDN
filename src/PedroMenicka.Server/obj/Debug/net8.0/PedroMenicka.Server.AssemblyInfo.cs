@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("PedroMenicka.Server")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5aebcbee21a7665dc5bc2683c02ba486c83da19e")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+bf1629e50eaacf864db80fdca2d44e2075b3abba")]
 [assembly: System.Reflection.AssemblyProductAttribute("PedroMenicka.Server")]
 [assembly: System.Reflection.AssemblyTitleAttribute("PedroMenicka.Server")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
