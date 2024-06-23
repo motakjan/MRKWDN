@@ -1,5 +1,6 @@
 'use client';
 
+import { zodResolver } from '@hookform/resolvers/zod';
 import * as React from 'react';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
@@ -8,23 +9,31 @@ import { Button } from '@/components/ui/button';
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
 
-const loginSchema = z.object({
-  email: z.string().email({ message: 'Invalid email address format' }),
-  password: z.string().min(1, 'Password is required'),
-});
+const registerSchema = z
+  .object({
+    email: z.string().email({ message: 'Invalid email address format' }),
+    password: z.string().min(1, 'Password is required'),
+    confirmPassword: z.string(),
+  })
+  .refine((data) => data.password === data.confirmPassword, {
+    message: "Passwords don't match",
+    path: ['confirmPassword'],
+  });
 
-type LoginSchema = z.infer<typeof loginSchema>;
+type RegisterSchema = z.infer<typeof registerSchema>;
 
-export const LoginForm = () => {
-  const form = useForm<LoginSchema>({
+export const RegisterForm = () => {
+  const form = useForm<RegisterSchema>({
+    resolver: zodResolver(registerSchema),
     defaultValues: {
       email: '',
       password: '',
+      confirmPassword: '',
     },
   });
 
   // 2. Define a submit handler.
-  function onSubmit(_values: LoginSchema) {
+  function onSubmit(_values: RegisterSchema) {
     // Do something with the form values.
     // ✅ This will be type-safe and validated.
   }
@@ -59,8 +68,21 @@ export const LoginForm = () => {
             </FormItem>
           )}
         />
+        <FormField
+          control={form.control}
+          name="confirmPassword"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Confirm password</FormLabel>
+              <FormControl>
+                <Input placeholder="Confirm password" type="password" {...field} />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
         <Button type="submit" className="w-full mt-8">
-          Sign In
+          Sign Up
         </Button>
       </form>
     </Form>
