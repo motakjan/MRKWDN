@@ -24,7 +24,7 @@ _italicized text_
 
 [title](https://www.example.com)
 
-![alt text](image.jpg)
+![alt text](https://refstatic.sk/article/vitez-survivoru-mikyr-si-na-herohero-mesicne-vydela-miliony-oznamil-novy-projekt-se-sefem-oktagonu~dad21974882270a970b7.jpg?is=919x570c&ic=0x42x543x339&c=2w&s=a87234b0f64ec9fce71c65823494b0fa76527bb11d42c739aab870657e219698)
 
 | Syntax | Description |
 | ----------- | ----------- |

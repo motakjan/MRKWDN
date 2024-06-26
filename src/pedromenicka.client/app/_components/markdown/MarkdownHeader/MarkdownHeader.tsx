@@ -9,9 +9,9 @@ export const MarkdownHeader = ({ props, heading }: MarkdownHeaderProps): JSX.Ele
   const { children, ...restProps } = props;
 
   const headingClasses = {
-    h1: 'text-4xl mb-1',
-    h2: 'text-2xl mb-1',
-    h3: 'text-xl mb-1',
+    h1: 'text-4xl mb-4 border-b dark:border-neutral-700 border-neutral-300 pb-2',
+    h2: 'text-2xl mb-4 border-b dark:border-neutral-700 border-neutral-300 pb-2',
+    h3: 'text-xl mb-4',
   };
 
   switch (heading) {

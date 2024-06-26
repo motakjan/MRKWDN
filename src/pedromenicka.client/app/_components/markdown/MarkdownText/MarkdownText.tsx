@@ -8,7 +8,7 @@ export const MarkdownText = ({ props }: MarkdownTextProps): JSX.Element => {
   const { children, ...restProps } = props;
 
   return (
-    <p className="text-sm" {...restProps}>
+    <p className="text-sm mb-3" {...restProps}>
       {children}
     </p>
   );

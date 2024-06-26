@@ -2,10 +2,13 @@ import Markdown from 'react-markdown';
 import rehypeColorChips from 'rehype-color-chips';
 import remarkGfm from 'remark-gfm';
 
+import { MarkdownBlockquote } from '@/app/_components/markdown/MarkdownBlockquote/MarkdownBlockquote';
 import { MarkdownCode } from '@/app/_components/markdown/MarkdownCode/MarkdownCode';
+import { MarkdownCodePre } from '@/app/_components/markdown/MarkdownCodePre/MarkdownCodePre';
 import { MarkdownHeader } from '@/app/_components/markdown/MarkdownHeader/MarkdownHeader';
 import { MarkdownLink } from '@/app/_components/markdown/MarkdownLink/MarkdownLink';
 import { MarkdownList, MarkdownListItem } from '@/app/_components/markdown/MarkdownList/MarkdownList';
+import { MarkdownSeparator } from '@/app/_components/markdown/MarkdownSeparator/MarkdownSeparator';
 import { MarkdownText } from '@/app/_components/markdown/MarkdownText/MarkdownText';
 
 interface MarkdownViewProps {
@@ -31,6 +34,9 @@ export const MarkdownView = ({ markdown }: MarkdownViewProps) => {
         ol: (props) => <MarkdownList props={props} type="ordered" />,
         li: (props) => <MarkdownListItem props={props} />,
         a: (props) => <MarkdownLink props={props} />,
+        blockquote: (props) => <MarkdownBlockquote props={props} />,
+        hr: (props) => <MarkdownSeparator props={props} />,
+        pre: (props) => <MarkdownCodePre props={props} />,
       }}
       remarkPlugins={[remarkGfm]}
       rehypePlugins={[

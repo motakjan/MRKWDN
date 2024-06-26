@@ -14,14 +14,14 @@ export const MarkdownList = ({ props, type }: MarkdownListProps): JSX.Element =>
 
   if (type === 'unordered') {
     return (
-      <ul className="text-sm list-disc ml-7" {...restProps}>
+      <ul className="text-sm list-disc ml-7 mb-3" {...restProps}>
         {children}
       </ul>
     );
   }
 
   return (
-    <ol className="text-sm list-decimal ml-7" {...restProps}>
+    <ol className="text-sm list-decimal ml-7 mb-3" {...restProps}>
       {children}
     </ol>
   );
