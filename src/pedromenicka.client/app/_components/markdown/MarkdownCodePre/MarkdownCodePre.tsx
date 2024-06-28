@@ -11,14 +11,14 @@ type MarkdownCodePreProps = {
 
 // TODO Fix this to not eslint ignore rules
 export const MarkdownCodePre = ({ props }: MarkdownCodePreProps): JSX.Element => {
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const [copiedText, copyToClipboard] = useCopyToClipboard();
+  const [_copiedText, copyToClipboard] = useCopyToClipboard();
   const [isTextCopied, setIsTextCopied] = useState(false);
 
   const { children } = props;
 
-  const handleClick = () => {
-    copyToClipboard((children as ReactElement)?.props.children);
+  const handleClick = async () => {
+    await copyToClipboard((children as ReactElement)?.props.children);
+
     setIsTextCopied(true);
     setTimeout(() => {
       setIsTextCopied(false);
@@ -27,14 +27,15 @@ export const MarkdownCodePre = ({ props }: MarkdownCodePreProps): JSX.Element =>
 
   return (
     <div className="relative">
-      <pre className="text-md mb-3 dark:bg-neutral-800 bg-neutral-100 px-2 py-3 rounded-md dark:[&_code]:bg-neutral-800 [&_code]:bg-neutral-100">
+      <pre
+        className="text-md mb-3 dark:bg-neutral-800 bg-neutral-100 px-2 py-3 rounded-md dark:[&_code]:bg-neutral-800 [&_code]:bg-neutral-100">
         {children}
         <Button
           className="absolute top-2 right-2"
           variant="ghost"
           size="icon"
           disabled={isTextCopied}
-          onClick={() => handleClick()}
+          onClick={handleClick}
         >
           {isTextCopied ? <Check className="h-4 w-4 text-green-500" /> : <Copy className="h-4 w-4" />}
         </Button>

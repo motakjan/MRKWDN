@@ -10,7 +10,7 @@ import { Input } from '@/components/ui/input';
 
 const loginSchema = z.object({
   email: z.string().email({ message: 'Invalid email address format' }),
-  password: z.string().min(1, 'Password is required'),
+  password: z.string().min(1, 'Password is required')
 });
 
 type LoginSchema = z.infer<typeof loginSchema>;
@@ -19,8 +19,8 @@ export const LoginForm = () => {
   const form = useForm<LoginSchema>({
     defaultValues: {
       email: '',
-      password: '',
-    },
+      password: ''
+    }
   });
 
   // 2. Define a submit handler.
@@ -31,7 +31,6 @@ export const LoginForm = () => {
 
   return (
     <Form {...form}>
-      {/* eslint-disable-next-line @typescript-eslint/no-misused-promises */}
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4 w-full">
         <FormField
           control={form.control}

@@ -13,11 +13,11 @@ const registerSchema = z
   .object({
     email: z.string().email({ message: 'Invalid email address format' }),
     password: z.string().min(1, 'Password is required'),
-    confirmPassword: z.string(),
+    confirmPassword: z.string()
   })
   .refine((data) => data.password === data.confirmPassword, {
-    message: "Passwords don't match",
-    path: ['confirmPassword'],
+    message: 'Passwords don\'t match',
+    path: ['confirmPassword']
   });
 
 type RegisterSchema = z.infer<typeof registerSchema>;
@@ -28,8 +28,8 @@ export const RegisterForm = () => {
     defaultValues: {
       email: '',
       password: '',
-      confirmPassword: '',
-    },
+      confirmPassword: ''
+    }
   });
 
   // 2. Define a submit handler.
@@ -40,7 +40,6 @@ export const RegisterForm = () => {
 
   return (
     <Form {...form}>
-      {/* eslint-disable-next-line @typescript-eslint/no-misused-promises */}
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4 w-full">
         <FormField
           control={form.control}
