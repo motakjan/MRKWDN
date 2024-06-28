@@ -8,7 +8,7 @@ export const MarkdownLink = ({ props }: MarkdownLinkProps): JSX.Element => {
   const { children, ...restProps } = props;
 
   return (
-    <a className="text-sm text-blue-500 underline underline-offset-2" {...restProps}>
+    <a className="text-md text-blue-500 underline underline-offset-2" {...restProps}>
       {children}
     </a>
   );

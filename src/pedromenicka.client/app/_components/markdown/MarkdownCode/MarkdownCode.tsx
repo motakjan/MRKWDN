@@ -8,7 +8,7 @@ export const MarkdownCode = ({ props }: MarkdownCodeProps): JSX.Element => {
   const { children, ...restProps } = props;
 
   return (
-    <code className="text-sm mb-3 dark:bg-neutral-700 bg-neutral-200 py-0.5 px-1 rounded-lg" {...restProps}>
+    <code className="text-md mb-3 dark:bg-neutral-700 bg-neutral-200 py-0.5 px-1 rounded-lg" {...restProps}>
       {children}
     </code>
   );
