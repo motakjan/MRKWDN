@@ -1,4 +1,3 @@
-import { ResizableHandle, ResizablePanel, ResizablePanelGroup } from '@/components/ui/resizable';
 import { Textarea } from '@/components/ui/textarea';
 import * as React from 'react';
 import { MarkdownHeader } from '@/app/_components/markdown/MarkdownHeader/MarkdownHeader';
@@ -18,6 +17,13 @@ import { ToggleGroup, ToggleGroupItem } from '@/components/ui/toggle-group';
 import { motion } from 'framer-motion';
 import { CaseSensitive, Code, Columns2 } from 'lucide-react';
 import { ImperativePanelHandle } from 'react-resizable-panels';
+import {
+  MarkdownTable,
+  MarkdownTableDataCell,
+  MarkdownTableHead,
+  MarkdownTableHeader,
+  MarkdownTableRow,
+} from '@/app/_components/markdown/MarkdownTable/MarkdownTable';
 
 enum MarkdownEditorView {
   Split = 'split',
@@ -94,6 +100,11 @@ export const MarkdownEditor = () => {
               blockquote: (props) => <MarkdownBlockquote props={props} />,
               hr: (props) => <MarkdownSeparator props={props} />,
               pre: (props) => <MarkdownCodePre props={props} />,
+              table: (props) => <MarkdownTable props={props} />,
+              thead: (props) => <MarkdownTableHead props={props} />,
+              tr: (props) => <MarkdownTableRow props={props} />,
+              th: (props) => <MarkdownTableHeader props={props} />,
+              td: (props) => <MarkdownTableDataCell props={props} />,
             }}
             remarkPlugins={[remarkGfm]}
             rehypePlugins={[rehypeSanitize]}

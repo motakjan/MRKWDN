@@ -9,7 +9,6 @@ type MarkdownCodePreProps = {
   props: ClassAttributes<HTMLPreElement> & HTMLAttributes<HTMLPreElement> & ExtraProps;
 };
 
-// TODO Fix this to not eslint ignore rules
 export const MarkdownCodePre = ({ props }: MarkdownCodePreProps): JSX.Element => {
   const [_copiedText, copyToClipboard] = useCopyToClipboard();
   const [isTextCopied, setIsTextCopied] = useState(false);
@@ -27,8 +26,7 @@ export const MarkdownCodePre = ({ props }: MarkdownCodePreProps): JSX.Element =>
 
   return (
     <div className="relative">
-      <pre
-        className="text-md mb-3 dark:bg-neutral-800 bg-neutral-100 px-2 py-3 rounded-md dark:[&_code]:bg-neutral-800 [&_code]:bg-neutral-100">
+      <pre className="text-md mb-3 dark:bg-neutral-800 bg-neutral-100 px-2 py-3 rounded-md dark:[&_code]:bg-neutral-800 [&_code]:bg-neutral-100">
         {children}
         <Button
           className="absolute top-2 right-2"
